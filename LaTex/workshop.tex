@@ -129,22 +129,24 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
+  \graphicspath{{./figures/pdf/}{./figures/png/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+   \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
   % driver is specified.
   % \usepackage[dvips]{graphicx}
+  \usepackage[dvipdf]{graphicx}
   % declare the path(s) where your graphic files are
-  % \graphicspath{{../eps/}}
+   \graphicspath{{./figures/eps/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.eps}
+   \DeclareGraphicsExtensions{.eps}
 \fi
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
@@ -490,14 +492,29 @@ The existence of a large number of bugs with a single star seems to reflect the 
 
 The above seems the true reflection of the closed contribution model of the Android development and the fact that Google takes all the decisions regarding the operating system unilaterally. [Explain release cycle, etc.]
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=3.5in]{stars-duration-log}
+\caption{Simulation Results}
+\label{fig:stars-duration}
+\end{figure}
+
 \section{Threats to validity}
 TBD
 
-\section{Further Work}
-TBD
+%\section{Further Work}
+%TBD
 
-\section{Conclusions }
-TBD
+\section{Conclusions and Further Work}
+Almost all the bugs registered in the public Android tracker have the same priority and there is no relation between the priority and the number of subscribers of the bugs.
+
+As stated by the Android Open Source Project, there are several trackers for the bugs of the operating system, among which only the studied tracker is official and public. This is a major determinant for the results of our study. The information of the public tracker is distorted because the actual development is driven by the private tracker, as reflected by the fact that almost all bugs share the same priority. We may deduce that the priorities of the bugs are actually tracked by the private tracker. We also believe that the number of subscribers of a bug is not a major factor in the prioritization made by the developers.
+
+Regarding the relation between the resolution time and the number of subscribers of a bug, there are also many other factors that come into play. For example, a bug that might have more relevance for the community can be solved faster because it is not very complex or has high private priority, thus not spending enough time open to build up a large number of stars. In contrast, a bug that is less relevant for the community may stay open more time, either because it is very complex or has low private priority, making it easier for the bug to accumulate more stars during its life.
+
+We would like to have access to the private bug tracker databases of the project in order to evaluate their information, apply the presented statistical analysis and compare the results with the ones we have found here. However, bug tracking systems databases not always are available to researches and third parties, especially those related with OEMs. This issue is even more evident in the case of Google, which not only keeps a private bug tracking system, but also keeps the development private, making the source code available to the community only after releasing binaries. Making the information of the development available would help better  understand the dynamics of the project.
+
+
 
 %\url{ http://www.ifi.uzh.ch/icse2012/how-to-submit/ }
 %Inside 2012.msrconf.org 
@@ -588,8 +605,8 @@ TBD
 
 
 % use section* for acknowledgement
-\section*{Acknowledgment}
-TBD
+%\section*{Acknowledgment}
+
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
@@ -601,7 +618,7 @@ TBD
 
 % Better way for balancing the last page:
 
-\balance
+%\balance
 
 % references section
 

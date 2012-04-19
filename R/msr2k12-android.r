@@ -135,14 +135,17 @@ print(summary(PriorityInt))
 print(paste("Standard deviation", sd(PriorityInt)))
 boxplot(PriorityInt, main="Priorities boxplot", ylab="Priorities")
 barplot(PriorityInt, main="Priorities barplot", xlab="Bugs", ylab="Priorities")
-plot(PriorityInt, main="Priorities", xlab="Stars", ylab="Priorities")
+#plot(PriorityInt, main="Priorities", xlab="Stars", ylab="Priorities")
+plot(PriorityInt, xlab="Number of Subscribers", ylab="Priority")
 
 stripplot(Priority~Stars, main="Priorities of the bugs in function of their stars", xlab="Stars", ylab="Priorities")
 
 # Representations
 # Duration vs Stars
 plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, main="Time to solve a bug vs stars"); grid()
-plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, log="xy", main="Time to solve a bug vs stars (log)"); grid()
+#plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, log="xy", main="Time to solve a bug vs stars (log)"); grid()
+plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), xlab="Number of Subscribers (logarithmic)", ylab="Resolution Time (logarithmic)", col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, log="xy"); grid()
+
 
 # Calculation of the medians of the durations in function of the stars
 timeMedians = medianMaker2(Duration, Stars)

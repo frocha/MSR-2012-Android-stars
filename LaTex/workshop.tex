@@ -449,7 +449,7 @@ Android, MSR challenge, bug tracking system, BTS, subscribers, stars, priority, 
 
 \section{Introduction}
 %%\url {http://2012.msrconf.org/challenge.php}.
-Bug reporting is an essential component of the development model of an open source project. Testing and validation of the project is mainly performed by users, who can contribute back to the project by reporting bugs. The more users inspecting and testing the code of a project, the quickest any bug will be located and the more probable is that someone finds a fix for the bug (Linus' Law \cite{CathedralBazaar}). Therefore, bug tracking systems (BTSs) are essential for the management and growth of open source projects, allowing direct and organized communication between users and developers of the project.
+Bug reporting is an essential component of the development model of an open source project. Testing and validation of the project is mainly performed by users, who can contribute back to the project by reporting bugs. The more users inspecting and testing the code of a project, the quickest any bug will be located and the more probable is that someone finds a fix for the bug (Linus' Law \cite{CathedralBazaar}). Therefore, bug tracking systems (BTS) are essential for the management and growth of open source projects, allowing direct and organized communication between users and developers of the project.
 
 The bug tracker plays a crucial role on the development of the project as it centralizes development requests. But from the point of view of project planning, the tracker presents a big challenge because of the large amount of information gathered. Prioritizing all that information is fundamental for the definition of the roadmap of the project. The developers need to classify the bugs according to some criteria in order to generate a prioritized list of pending tasks, given that it is impossible to solve all the bugs as they are being reported.
 
@@ -462,7 +462,7 @@ We believe that if developers take into account the number of subscribers of a b
 The rest of this paper is organized as follows: the next section describes work related to this project. Section III provides both the data source and the statistical analysis used in this study, while Section IV presents our results. Section V presents a discussion about conditions that constrain our results. The last section includes conclusions and some considerations for further work.
 
 \section{Related Research}
-The influence of the subscribers of bugs on Open Source projects has not been studied thoroughly. However there are some works that have related the resolution time of bugs with other parameters. Herraiz et al \cite{EclipseSimplification} studied the mean time to close bugs reported in Eclipse, and related it to how the severity assigned by users affects this time. In particular, the study classifies bugs according to the time it takes to solve them, grouping the results in severity categories. Crowston et al \cite{Portfolio} have also studied bug fixing time as a measure of FLOSS projects success, entering bug priority as a factor of the study. The paper presents a statistical analysis of the time to close buts modelled as censored data.
+The influence of the subscribers of bugs on Open Source projects has not been studied thoroughly. However there are some works that have related the resolution time of bugs with other parameters. Herraiz et al \cite{EclipseSimplification} studied the mean time to close bugs reported in Eclipse, and related it to how the severity assigned by users affects this time. In particular, the study classifies bugs according to the time it takes to solve them, grouping the results in severity categories. Crowston et al \cite{Portfolio} have also studied bug fixing time as a measure of FLOSS projects success, entering bug priority as a factor of the study. The paper presents a statistical analysis of the time to close bugs modeled as censored data.
 
 \section{Methodology}
 
@@ -484,7 +484,7 @@ We evaluate the density function of the logarithm of the number of subscribers o
 
 Then we analyzed the cumulative distribution function of the resolution time. In particular, we use the inverse of the cumulative distribution function, because cognitive psychology tells that it is easier to discern variations on descent curves  \cite{NowYouSeeIt}.
 
-We also tryed to approximate the distribution of the samples with a Poisson distribution and repeated the process with an exponential distribution.
+We also tried to approximate the distribution of the samples with a Poisson distribution and repeated the process with an exponential distribution.
 
 Finally we computed the value of the correlation between the resolution time and the number of subscribers of the bugs. We computed the Pearson coefficient, which measures linear correlation, as well as both Kendall and Spearman coefficients, which measure if there is any kind of strong relation between both variables, even if it is not linear.
 
@@ -501,7 +501,7 @@ We have found no statistical relation between the number of subscribers and the 
 
 We suppose that the number of  subscribers of a bug is somehow used by the developers to assign the priority value of each bug. We have represented the priorities against the number of subscribers. The results are shown in \ref{fig:stars-priority}. The horizontal axis represents the number of subscribers of a bug, while the values on the vertical axis represent the priority of the bugs. The figure shows that almost all bugs have “Medium” priority, which seems to portray the fact that developers do not pay special attention to this property.
 
-All the above seems the true reflection of the closed contribution model of the Android development approach and the fact that Google takes all the decisions regarding the operating system unilaterally. The release cycle makdes the source code public only after releasing binaries. 
+All the above seems the true reflection of the closed contribution model of the Android development approach and the fact that Google takes all the decisions regarding the operating system unilaterally. The release cycle makes the source code public only after releasing binaries. 
 
 \begin{figure}[!t]
 \centering

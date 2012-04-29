@@ -136,7 +136,11 @@ print(paste("Standard deviation", sd(PriorityInt)))
 boxplot(PriorityInt, main="Priorities boxplot", ylab="Priorities")
 barplot(PriorityInt, main="Priorities barplot", xlab="Bugs", ylab="Priorities")
 #plot(PriorityInt, main="Priorities", xlab="Stars", ylab="Priorities")
-plot(PriorityInt, xlab="Number of Subscribers", ylab="Priority")
+plot(PriorityInt, yaxt="n", xlab="Number of Subscribers", ylab="Priority")
+
+d=c(1, 2, 3, 4, 5)
+dl=c("Blocker", "Critical", "High", "Medium", "Small")
+axis(2, at=d, labels=dl)
 
 stripplot(Priority~Stars, main="Priorities of the bugs in function of their stars", xlab="Stars", ylab="Priorities")
 
@@ -144,7 +148,12 @@ stripplot(Priority~Stars, main="Priorities of the bugs in function of their star
 # Duration vs Stars
 plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, main="Time to solve a bug vs stars"); grid()
 #plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, log="xy", main="Time to solve a bug vs stars (log)"); grid()
-plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), xlab="Number of Subscribers (logarithmic)", ylab="Resolution Time (logarithmic)", col=rgb(0, 100, 0, 50, maxColorValue=255), pch=16, log="xy"); grid()
+#plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), xlab="Number of Subscribers (logarithmic)", ylab="Resolution Time (logarithmic)", col=rgb(0, 100, 50, 50, maxColorValue=255), pch=16, log="xy"); grid()
+plot(jitter(Stars, factor=5), jitter(Duration/(60*60*24*365), factor=2), axes=FALSE, xlab="Number of Subscribers (logarithmic)", ylab="Resolution Time (logarithmic)", col=rgb(0, 0, 100, 50, maxColorValue=255), pch=16, log="xy"); grid()
+d=c(0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000)
+axis(1, at=d, labels=d)
+g=c(0.000001, 0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10)
+axis(2, at=g, labels=g)
 
 
 # Calculation of the medians of the durations in function of the stars

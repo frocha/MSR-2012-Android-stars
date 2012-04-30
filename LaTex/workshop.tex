@@ -459,13 +459,13 @@ From the moment a bug is reported and until it is closed, the bug may be in diff
 
 We believe that if developers take into account the number of subscribers of a bug for the development of the project, then we should observe some relation between the number of stars of a bug and the time that bug takes to be solved. We should also expect to see a relation between the priority of a bug and the number of stars of that particular bug. The objective of the present paper is to evaluate these two statements using the bug reports provided in XML format by the MSR 2012 challenge \cite{MSR}. 
 
-The rest of the present paper is organized as follows: the next section describes work related to this project. Section III provides both the data source and the statistical analysis used in this study, while Section IV presents our results. Section V presents a discussion about conditions that constrain our results. The last section includes conclusions and some considerations for further work.
+The rest of the present paper is organized as follows: the next section describes work related to this project. Section~\ref{sec:methodology} provides both the data source and the statistical analysis used in this study, while Section~\ref{sec:results} presents our results. Section~\ref{sec:threats} presents a discussion about conditions that constrain our results. The last section includes conclusions and some considerations for further work.
 
 \section{Related Research}
 The influence of the subscribers of bugs on Open Source projects has not been studied thoroughly. However, the resolution time of bugs has been related with other parameters in some works. Herraiz et al \cite{EclipseSimplification} studied the mean time to close bugs reported in Eclipse, and related it to how the severity assigned by users affects this time. In particular, the study classifies bugs according to the time it takes to solve them, grouping the results in severity categories. Crowston et al \cite{Portfolio} have also studied bug fixing time as a measure of FLOSS projects success, entering bug priority as a factor of the study. The paper presents a statistical analysis of the time to close bugs modeled as censored data.
 
 \section{Methodology}
-
+\label{sec:methodology}
 \subsection {Data gathering}
 %\emph{BTS Data}
 We have made the current study from the data provided for the Mining Challenge of the 9th International Working Conference on Mining Software Repositories (MSR) \cite{MSR}. Specifically, we have extracted the needed information from the bugs reported on the tracker of the project, provided in XML format.
@@ -491,6 +491,7 @@ Finally we computed the value of the correlation between the resolution time and
 To validate our second hypotheses, we have also tried to relate bug priority with number of subscribers in an analogous way as we did with the bug resolution time.
 
 \section{Results}
+\label{sec:results}
 %\includegraphics{figures/stars-duration-log.png}
 According to the Android BTS \cite{ReportBugs}, the number of subscribers of a bug helps developers know which bugs are more relevant for the community. Figure~\ref{fig:stars-duration} represents the time to solve bugs. The horizontal axis represents the number of subscribers of a bug, while the values on the vertical axis represent the time to close bugs. To increase resolution, both axes present logarithmic scale. Given the variability on the vertical axis, we deduce that the time to close a bug is not influenced by the number of subscribers of the bug.
 
@@ -518,6 +519,7 @@ Our results seem the true reflection of the closed contribution model of the And
 \end{figure}
 
 \section{Threats to Validity}
+\label{sec:threats}
 Our model is based on features that can easily be gathered from bug report submissions. Construct validity requires that we correctly identify resolution time, number of subscribers and priority for each bug of the project. These are straightforward values directly obtained by simple arithmetic calculations from the information provided by the tracker.
 
 The main threat to the external validity of our study is the actual veracity of the values provided by the tracker. There are several systems keeping track of the bugs of the operating system, among which some are kept private by Google \cite{LifeBug}. This means that the information of the public tracker is partial and incomplete, as reflected by the fact that most of the bugs present the same priority. That compromises the validity of our study, but in no case prevents our method to be applied to any other set of data.

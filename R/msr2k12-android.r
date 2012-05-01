@@ -95,12 +95,14 @@ meanMaker <- function(v, stars, starsLimit=max(stars))
 }
 
 library("lattice")
+library("Hmisc")
 
 # Setting the working path
-setwd("~/mswl/17.Dynamics-of-Libre-Software-Communities/MSR-2012-Android-stars/R/")
+#setwd("~/mswl/17.Dynamics-of-Libre-Software-Communities/MSR-2012-Android-stars/R/")
 
 # Read the data (relative path to the working path)
-android = read.table("~/workspace/msr2k12-android/bug_stars_duration_clean.txt", header=T)
+#android = read.table("~/workspace/msr2k12-android/bug_stars_duration_clean.txt", header=T)
+android = read.table("bug_stars_duration_clean.txt", header=T)
 attach(android)
 
 # Stars variable
@@ -109,10 +111,22 @@ print(summary(Stars))
 print(paste("Standard deviation", sd(Stars)))
 boxplot(Stars, main="Stars boxplot", ylab="Stars")
 barplot(Stars, main="Stars barplot", xlab="Bugs", ylab="Stars")
+# Density function of the log10 representation of the Stars greater than 3
+plot(density(log10(Stars[Stars > 3])))
+
+#Empirical Cumulative Distribution Plot
+Ecdf(log10(Stars[Stars>3]), what="1-F")
+
+#Trying to get if our variable follows a Poisson distribution (but not)
+Ecdf(log10(rpois(n=3000, lambda=2)+1))
+Ecdf(log10(rpois(n=3000, lambda=2)+1), what="1-F")
+Ecdf(log10(rpois(n=3000, lambda=0.5)+1), what="1-F")
+Ecdf(log10(rpois(n=10000, lambda=0.5)+1), what="1-F")
+Ecdf(log10(rpois(n=10000, lambda=4)+1), what="1-F")
 
 # Duration variable
 print("Duration")
-print(summary(Duration))
+print(summary(Duration)/(60*60*24*365))
 print(paste("Standard deviation", sd(Duration)))
 boxplot(Duration/(60*60*24*365), main="Durations boxplot", ylab="Durations (years)")
 barplot(Duration/(60*60*24*365), main="Durations barplot", xlab="Bugs", ylab="Durations (years)")
